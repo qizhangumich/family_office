@@ -242,27 +242,33 @@ header {
     top: 0;
     z-index: 1000;
     transition: all 0.4s ease;
-    height: 90px;
+    height: 220px;
     display: flex;
     align-items: center;
 }
 
 header.scrolled {
-    height: 70px;
+    height: 170px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
 .logo-container {
-    padding: 0 20px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo {
-    height: 60px;
+    width: 169px;
+    height: 204px;
+    object-fit: contain;
     transition: var(--transition);
 }
 
 header.scrolled .logo {
-    height: 50px;
+    width: 135px;
+    height: 163px;
 }
 
 nav {
@@ -393,11 +399,12 @@ nav {
 /* Mobile Navigation Styles */
 @media (max-width: 991px) {
     header {
-        height: 70px;
+        height: 180px;
     }
     
     .logo {
-        height: 45px;
+        width: 126px;
+        height: 153px;
     }
     
     .nav-toggle {
@@ -406,10 +413,10 @@ nav {
     
     .nav-menu {
         position: fixed;
-        top: 70px;
+        top: 180px;
         left: -100%;
         width: 80%;
-        height: calc(100vh - 70px);
+        height: calc(100vh - 180px);
         background-color: #fff;
         flex-direction: column;
         box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
@@ -457,9 +464,15 @@ nav {
     }
 }
 
+@media (max-width: 768px) {
+    main {
+        margin-top: 180px;
+    }
+}
+
 /* Main Content Styles */
 main {
-    margin-top: 92px;
+    margin-top: 220px;
 }
 
 /* Hero Section */
