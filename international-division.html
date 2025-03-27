@@ -9,6 +9,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Page-specific overrides */
+        .intro-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.8rem;
+        }
+        
+        .private-office-intro {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        
+        .investment-approach {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        
+        .office-activities {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        
+        .contact-cta {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -68,11 +96,12 @@
         <section class="private-office-intro section-padding">
             <div class="container">
                 <div class="intro-content">
-                    <div class="intro-text fade-in">
-                        <h2>Global Extension of Our Vision</h2>
+                    <div class="intro-text fade-in" style="max-width: 900px; margin: 0 auto;">
+                        <h2 class="text-center">Global Extension of Our Vision</h2>
                         <p class="lead">Our International Division serves as the global extension of the Office's vision, facilitating strategic partnerships across continents through sophisticated engagement strategies and cultural intelligence.</p>
                         <p>The division identifies high-potential opportunities aligned with our investment philosophy while fostering relationships built on mutual understanding and shared aspirations. Through carefully curated investment initiatives, diplomatic engagement, and knowledge-sharing platforms, we contribute to building a more resilient international ecosystem characterized by thoughtful collaboration and sustainable growth principles.</p>
                         <p>Our international team brings diverse expertise spanning multiple sectors, languages, and cultural contexts—enabling nuanced engagement adapted to local circumstances while maintaining global strategic coherence. The division maintains particular focus on initiatives that strengthen connections between emerging markets and established economies, create innovative solutions to shared challenges, and foster greater understanding between diverse knowledge traditions.</p>
+                        <p>Through this balanced approach to international engagement, we honour our commitment to advancing prosperity through partnership, creating sustainable value across borders while respecting the unique contexts and priorities of each region in which we operate.</p>
                     </div>
                 </div>
             </div>
@@ -81,7 +110,7 @@
         <section class="investment-approach section-padding bg-light">
             <div class="container">
                 <h2 class="section-title text-center fade-in">Forging Global Connections</h2>
-                <p class="section-intro fade-in">We invite international organisations, government entities, and private enterprises to explore collaborative opportunities that transcend geographical boundaries. Our International Division offers a distinguished platform for meaningful engagement through:</p>
+                <p class="section-intro fade-in" style="max-width: 800px; margin: 0 auto 3rem auto; font-size: 1.05rem; line-height: 1.8;">We invite international organisations, government entities, and private enterprises to explore collaborative opportunities that transcend geographical boundaries. Our International Division offers a distinguished platform for meaningful engagement through:</p>
                 <div class="approach-grid stagger-container">
                     <div class="highlight stagger-item">
                         <div class="highlight-icon">
@@ -112,31 +141,48 @@
                         <p>Bespoke market entry and expansion strategies for international partners.</p>
                     </div>
                 </div>
-                <div class="text-center" style="margin-top: 2rem;">
-                    <p>For entities seeking sophisticated international partners with both global perspective and local insight, we welcome enquiries to discuss potential alignment of interests and capabilities. Our approach emphasises long-term relationship development founded on shared values and mutual benefit.</p>
+                <div class="text-center" style="margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <p style="font-size: 1.05rem; line-height: 1.8;">For entities seeking sophisticated international partners with both global perspective and local insight, we welcome enquiries to discuss potential alignment of interests and capabilities. Our approach emphasises long-term relationship development founded on shared values and mutual benefit.</p>
                 </div>
             </div>
         </section>
 
         <section class="office-activities section-padding">
             <div class="container">
-                <h2 class="section-title text-center fade-in">Our Global Presence</h2>
-                <div class="featured-content">
-                    <div class="featured-image fade-in">
-                        <img src="img/pexels-kadiravsarr-14750183.jpg" alt="Global Presence">
-                    </div>
-                    <div class="featured-text fade-in">
-                        <h3>Worldwide Network</h3>
-                        <p>With strategic partners and initiatives spanning multiple continents, our international reach enables us to identify emerging opportunities and build meaningful connections worldwide.</p>
-                        <p>Our network of relationships extends across key regions including:</p>
-                        <ul class="regions-list" style="list-style-type: none; padding-left: 0; margin: 1.5rem 0;">
-                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--secondary-color); margin-right: 10px;"></i> Middle East and North Africa</li>
-                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--secondary-color); margin-right: 10px;"></i> Europe and United Kingdom</li>
-                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--secondary-color); margin-right: 10px;"></i> North America</li>
-                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--secondary-color); margin-right: 10px;"></i> East and Southeast Asia</li>
-                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--secondary-color); margin-right: 10px;"></i> Sub-Saharan Africa</li>
-                        </ul>
-                        <a href="implementation.html" class="cta-button">Explore Implementation Frameworks</a>
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h2 class="section-title text-center fade-in">Our Global Presence</h2>
+                    <p class="section-intro text-center fade-in" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 3rem;">With strategic partners and initiatives spanning multiple continents, our international reach enables us to identify emerging opportunities and build meaningful connections worldwide.</p>
+                    
+                    <div class="fade-in">
+                        <h3 class="text-center" style="margin-bottom: 2rem;">Global Network</h3>
+                        <p class="text-center" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem;">Our network of relationships extends across key regions including:</p>
+                        
+                        <div class="regions-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin: 3rem 0;">
+                            <div class="region-item" style="flex: 1 1 300px; text-align: center; padding: 1.5rem; background-color: var(--light-bg); border-radius: var(--border-radius); box-shadow: var(--box-shadow); max-width: 300px;">
+                                <i class="fas fa-globe-africa" style="font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                                <h4>Middle East and North Africa</h4>
+                            </div>
+                            <div class="region-item" style="flex: 1 1 300px; text-align: center; padding: 1.5rem; background-color: var(--light-bg); border-radius: var(--border-radius); box-shadow: var(--box-shadow); max-width: 300px;">
+                                <i class="fas fa-globe-europe" style="font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                                <h4>Europe and United Kingdom</h4>
+                            </div>
+                            <div class="region-item" style="flex: 1 1 300px; text-align: center; padding: 1.5rem; background-color: var(--light-bg); border-radius: var(--border-radius); box-shadow: var(--box-shadow); max-width: 300px;">
+                                <i class="fas fa-globe-americas" style="font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                                <h4>North America</h4>
+                            </div>
+                            <div class="region-item" style="flex: 1 1 300px; text-align: center; padding: 1.5rem; background-color: var(--light-bg); border-radius: var(--border-radius); box-shadow: var(--box-shadow); max-width: 300px;">
+                                <i class="fas fa-globe-asia" style="font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                                <h4>East and Southeast Asia</h4>
+                            </div>
+                            <div class="region-item" style="flex: 1 1 300px; text-align: center; padding: 1.5rem; background-color: var(--light-bg); border-radius: var(--border-radius); box-shadow: var(--box-shadow); max-width: 300px;">
+                                <i class="fas fa-globe-africa" style="font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                                <h4>Sub-Saharan Africa</h4>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center" style="margin-top: 3rem;">
+                            <a href="implementation.html" class="cta-button">Explore Implementation Frameworks</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -145,7 +191,7 @@
         <section class="contact-cta">
             <div class="container">
                 <h2 class="fade-in">Connect With Our Team</h2>
-                <p class="fade-in">To explore international partnership opportunities or discuss specific market engagements, please contact our team.</p>
+                <p class="fade-in" style="font-size: 1.05rem; line-height: 1.8; max-width: 800px; margin-left: auto; margin-right: auto;">To explore international partnership opportunities or discuss specific market engagements, please contact our team. Our specialists stand ready to engage in meaningful dialogue about potential collaborations.</p>
                 <a href="contact.html" class="cta-button fade-in">Contact Us</a>
             </div>
         </section>
