@@ -24,10 +24,8 @@ function initMobileMenu() {
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
             menuOverlay.classList.toggle('active');
-            
-            // Toggle aria-expanded attribute for accessibility
-            const expanded = navMenu.classList.contains('active');
-            navToggle.setAttribute('aria-expanded', expanded);
+            this.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+            document.body.classList.toggle('menu-open');
         });
     }
     
@@ -39,6 +37,7 @@ function initMobileMenu() {
             if (navToggle) {
                 navToggle.setAttribute('aria-expanded', 'false');
             }
+            document.body.classList.remove('menu-open');
         });
     }
     
@@ -70,7 +69,7 @@ function initHeaderScroll() {
     const header = document.querySelector('header');
     
     function handleScroll() {
-        if (window.scrollY > 30) {
+        if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
@@ -112,11 +111,14 @@ function initResizeHandler() {
     window.addEventListener('resize', function() {
         const navMenu = document.querySelector('.nav-menu');
         const menuOverlay = document.querySelector('.menu-overlay');
+        const navToggle = document.querySelector('.nav-toggle');
         
         // Reset mobile menu when resizing above breakpoint
         if (window.innerWidth > 991) {
             if (navMenu) navMenu.classList.remove('active');
             if (menuOverlay) menuOverlay.classList.remove('active');
+            if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('menu-open');
             
             document.querySelectorAll('.dropdown-menu').forEach(menu => {
                 menu.classList.remove('show');
@@ -126,70 +128,34 @@ function initResizeHandler() {
 }
 
 // Add class to handle RTL styles when in Arabic mode
-function applyRTLStyles() {
-    if (document.dir === 'rtl') {
-        document.body.classList.add('rtl-layout');
+function toggleLanguage() {
+    const htmlTag = document.documentElement;
+    const isRTL = htmlTag.getAttribute('dir') === 'rtl';
+    
+    if (isRTL) {
+        htmlTag.setAttribute('dir', 'ltr');
+        htmlTag.setAttribute('lang', 'en');
     } else {
-        document.body.classList.remove('rtl-layout');
+        htmlTag.setAttribute('dir', 'rtl');
+        htmlTag.setAttribute('lang', 'ar');
     }
+    
+    document.body.classList.toggle('rtl-layout');
 }
 
-// Call this function whenever the language changes
-window.addEventListener('languagechange', applyRTLStyles);
-
-// Wait for the DOM to be fully loaded
+// Add event listener to language toggle buttons
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    const languageButtons = document.querySelectorAll('.language-btn');
     
-    if (navToggle) {
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-        });
-    }
-    
-    // Dropdown Menu on Mobile
-    const dropdowns = document.querySelectorAll('.dropdown');
-    
-    if (window.innerWidth <= 991) {
-        dropdowns.forEach(dropdown => {
-            dropdown.addEventListener('click', function(e) {
-                if (e.target.closest('a') && this.querySelector('.dropdown-menu')) {
-                    e.preventDefault();
-                    const dropdownMenu = this.querySelector('.dropdown-menu');
-                    dropdownMenu.classList.toggle('show');
-                }
+    languageButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            toggleLanguage();
+            
+            // Toggle button text
+            const buttons = document.querySelectorAll('.language-btn');
+            buttons.forEach(btn => {
+                btn.textContent = btn.textContent === 'العربية' ? 'English' : 'العربية';
             });
         });
-    }
-    
-    // Header scroll effect
-    const header = document.querySelector('header');
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
     });
-    
-    // Animation on scroll
-    const animateItems = document.querySelectorAll('.fade-in, .stagger-item');
-    
-    function checkScroll() {
-        animateItems.forEach(item => {
-            const itemTop = item.getBoundingClientRect().top;
-            if (itemTop < window.innerHeight * 0.8) {
-                item.classList.add('active');
-            }
-        });
-    }
-    
-    // Initial check for items in view
-    checkScroll();
-    
-    // Check for items on scroll
-    window.addEventListener('scroll', checkScroll);
 }); 
