@@ -962,4 +962,282 @@ footer {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+}
+
+/* International Division Page Styles */
+.international-intro {
+    padding: 6rem 0 4rem;
+    background-color: var(--primary-bg);
+}
+
+.international-content {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.international-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.international-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.international-image img:hover {
+    transform: scale(1.02);
+}
+
+.international-connections {
+    padding: 5rem 0;
+    background-color: var(--light-bg);
+}
+
+.connections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.connection-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.connection-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.connection-card h3 {
+    margin-bottom: 1rem;
+    color: var(--heading-color);
+}
+
+.international-approach {
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 8px 8px 0;
+}
+
+.global-presence {
+    padding: 5rem 0;
+    background-color: var(--primary-bg);
+}
+
+.presence-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.regions-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.regions-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #e1e1e1;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.regions-list li:before {
+    content: "\f0c8";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+}
+
+.presence-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Implementation Frameworks Page Styles */
+.implementation-intro {
+    padding: 6rem 0 4rem;
+    background-color: var(--primary-bg);
+}
+
+.implementation-content {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.implementation-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.implementation-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.implementation-image img:hover {
+    transform: scale(1.02);
+}
+
+.framework-pillars {
+    padding: 5rem 0;
+    background-color: var(--light-bg);
+}
+
+.frameworks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.framework-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.framework-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.framework-card h3 {
+    margin-bottom: 1rem;
+    color: var(--heading-color);
+}
+
+.evaluation-approach {
+    padding: 5rem 0;
+    background-color: var(--primary-bg);
+}
+
+.evaluation-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.evaluation-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.evaluation-text h2 {
+    margin-bottom: 1.5rem;
+}
+
+.evaluation-text h3 {
+    margin: 2rem 0 1rem;
+}
+
+.evaluation-list {
+    list-style: none;
+    padding: 0;
+}
+
+.evaluation-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #e1e1e1;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.evaluation-list li:before {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+.collaboration-invitation {
+    padding: 5rem 0;
+    text-align: center;
+    background-color: var(--light-bg);
+}
+
+.collaboration-invitation p {
+    max-width: 800px;
+    margin: 1.5rem auto;
+}
+
+.cta-container {
+    margin-top: 3rem;
+}
+
+/* Responsive Styles for International and Implementation Pages */
+@media (max-width: 992px) {
+    .international-content,
+    .implementation-content,
+    .presence-content,
+    .evaluation-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .international-image,
+    .implementation-image,
+    .presence-image,
+    .evaluation-image {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .connections-grid,
+    .frameworks-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .international-intro,
+    .implementation-intro,
+    .international-connections,
+    .framework-pillars,
+    .global-presence,
+    .evaluation-approach,
+    .collaboration-invitation {
+        padding: 3rem 0;
+    }
 } 
