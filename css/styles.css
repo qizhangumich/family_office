@@ -242,7 +242,7 @@ header {
     top: 0;
     z-index: 1000;
     transition: all 0.4s ease;
-    height: 90px;
+    height: 80px;
 }
 
 header.scrolled {
@@ -255,6 +255,7 @@ header .container {
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    max-width: 1400px; /* Increased max-width for better spacing */
 }
 
 .logo-container {
@@ -263,19 +264,20 @@ header .container {
 }
 
 .logo {
-    width: 169px;
-    height: 70px;
+    height: 60px;
+    width: auto;
     object-fit: contain;
     transition: var(--transition);
 }
 
 header.scrolled .logo {
-    height: 60px;
+    height: 50px;
 }
 
 nav {
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
 .nav-menu {
@@ -283,20 +285,26 @@ nav {
     list-style: none;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 .nav-menu > li {
-    margin-left: 2rem;
+    margin-left: 1.5rem;
     position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .nav-menu > li > a {
     color: var(--text-color);
     font-weight: 500;
-    padding: 0.8rem 0;
-    display: block;
-    font-size: 0.95rem;
-    letter-spacing: 0.2px;
+    padding: 0 0.25rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
     position: relative;
     text-transform: uppercase;
 }
@@ -305,9 +313,10 @@ nav {
     content: '•';
     color: var(--text-color);
     position: absolute;
-    left: -1.2rem;
+    left: -1rem;
     top: 50%;
     transform: translateY(-50%);
+    opacity: 0.5;
 }
 
 .nav-menu > li:first-child > a:before {
@@ -319,7 +328,7 @@ nav {
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: 0;
+    bottom: 28px;
     left: 0;
     background-color: var(--secondary-color);
     transition: var(--transition);
@@ -381,7 +390,7 @@ nav {
 }
 
 .language-toggle {
-    margin-left: 2.5rem;
+    margin-left: 2rem;
 }
 
 .language-btn {
@@ -419,12 +428,12 @@ nav {
     }
     
     .logo {
-        height: 50px;
-        width: auto;
+        height: 45px;
     }
     
     .nav-toggle {
         display: block;
+        font-size: 1.8rem;
     }
     
     .nav-menu {
@@ -437,8 +446,9 @@ nav {
         flex-direction: column;
         box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
         transition: all 0.4s ease;
-        padding: 2rem 0;
+        padding: 1.5rem 0;
         overflow-y: auto;
+        z-index: 1001;
     }
     
     .nav-menu.active {
@@ -447,11 +457,24 @@ nav {
     
     .nav-menu > li {
         margin: 0;
+        height: auto;
+        width: 100%;
     }
     
     .nav-menu > li > a {
-        padding: 1rem 2rem;
+        padding: 1rem 1.5rem;
         border-bottom: 1px solid var(--border-color);
+        justify-content: flex-start;
+        width: 100%;
+        height: auto;
+    }
+    
+    .nav-menu > li > a:before {
+        display: none;
+    }
+    
+    .nav-menu > li > a:after {
+        display: none;
     }
     
     .dropdown-menu {
@@ -465,6 +488,7 @@ nav {
         padding: 0;
         display: none;
         background-color: var(--light-bg);
+        width: 100%;
     }
     
     .dropdown-menu.show {
@@ -472,23 +496,48 @@ nav {
     }
     
     .dropdown-menu a {
-        padding-left: 3.5rem;
+        padding-left: 3rem;
+        font-size: 0.85rem;
     }
     
     .language-toggle {
-        margin: 1.5rem 2rem;
+        margin: 1rem 1.5rem;
+    }
+    
+    .language-btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Add overlay when mobile menu is active */
+    .menu-overlay {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        z-index: 1000;
+    }
+    
+    .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
     }
 }
 
 @media (max-width: 768px) {
     main {
-        margin-top: 180px;
+        margin-top: 70px;
     }
 }
 
 /* Main Content Styles */
 main {
-    margin-top: 90px;
+    margin-top: 80px;
 }
 
 /* Hero Section */

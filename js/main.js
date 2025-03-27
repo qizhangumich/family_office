@@ -1,189 +1,129 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
+    // Mobile menu functionality
+    initMobileMenu();
     
-    if (mobileMenuToggle && mainNav) {
-        mobileMenuToggle.addEventListener('click', function() {
-            mainNav.classList.toggle('mobile-menu-active');
-            // Transform hamburger to X
-            const spans = this.querySelectorAll('span');
-            spans.forEach(span => span.classList.toggle('active'));
+    // Header scroll functionality
+    initHeaderScroll();
+    
+    // Animation on scroll
+    initScrollAnimations();
+    
+    // Window resize handler
+    initResizeHandler();
+});
+
+// Mobile menu functionality
+function initMobileMenu() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    // Toggle mobile menu
+    if (navToggle) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            
+            // Toggle aria-expanded attribute for accessibility
+            const expanded = navMenu.classList.contains('active');
+            navToggle.setAttribute('aria-expanded', expanded);
         });
     }
     
-    // Mobile Dropdown Toggles
-    const dropdowns = document.querySelectorAll('.main-nav .dropdown');
+    // Close menu when clicking overlay
+    if (menuOverlay) {
+        menuOverlay.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            if (navToggle) {
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
     
-    dropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('a');
-        
-        if (window.innerWidth <= 991 && link) {
-            link.addEventListener('click', function(e) {
-                if (!this.parentNode.classList.contains('dropdown-active')) {
+    // Handle dropdown menus on mobile
+    if (window.innerWidth <= 991) {
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                if (e.target.closest('a') && this.querySelector('.dropdown-menu')) {
                     e.preventDefault();
                     
                     // Close other open dropdowns
-                    dropdowns.forEach(otherDropdown => {
-                        if (otherDropdown !== dropdown) {
-                            otherDropdown.classList.remove('dropdown-active');
+                    const allDropdownMenus = document.querySelectorAll('.dropdown-menu');
+                    allDropdownMenus.forEach(menu => {
+                        if (menu !== this.querySelector('.dropdown-menu')) {
+                            menu.classList.remove('show');
                         }
                     });
                     
-                    // Toggle current dropdown
-                    dropdown.classList.toggle('dropdown-active');
+                    const dropdownMenu = this.querySelector('.dropdown-menu');
+                    dropdownMenu.classList.toggle('show');
                 }
             });
-        }
-    });
-    
-    // Language Toggle
-    const languageToggle = document.getElementById('language-toggle');
-    const footerLanguageToggle = document.getElementById('footer-language-toggle');
-    
-    function toggleLanguage() {
-        // This would normally switch the language by redirecting to an Arabic version
-        // or by loading different content through AJAX
-        // For now, we'll just toggle the text
-        if (this.textContent === 'العربية') {
-            this.textContent = 'English';
-            document.dir = 'rtl'; // Right-to-left for Arabic
-            document.documentElement.lang = 'ar';
-        } else {
-            this.textContent = 'العربية';
-            document.dir = 'ltr'; // Left-to-right for English
-            document.documentElement.lang = 'en';
-        }
-        
-        // Sync the other language toggle
-        if (this.id === 'language-toggle' && footerLanguageToggle) {
-            footerLanguageToggle.textContent = this.textContent;
-        } else if (this.id === 'footer-language-toggle' && languageToggle) {
-            languageToggle.textContent = this.textContent;
-        }
-    }
-    
-    if (languageToggle) {
-        languageToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            toggleLanguage.call(this);
         });
     }
-    
-    if (footerLanguageToggle) {
-        footerLanguageToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            toggleLanguage.call(this);
-        });
-    }
-    
-    // Fixed Header Animation
+}
+
+// Header scroll functionality
+function initHeaderScroll() {
     const header = document.querySelector('header');
-    let lastScrollTop = 0;
     
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scrolling down & past the threshold
-            header.style.transform = 'translateY(-100%)';
+    function handleScroll() {
+        if (window.scrollY > 30) {
+            header.classList.add('scrolled');
         } else {
-            // Scrolling up or at the top
-            header.style.transform = 'translateY(0)';
+            header.classList.remove('scrolled');
         }
-        
-        lastScrollTop = scrollTop;
-    });
+    }
     
-    // Smooth Scrolling for Anchor Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            
-            // Skip language toggle and other non-anchor links
-            if (targetId === '#' || this.classList.contains('language-selector')) {
-                return;
-            }
-            
-            e.preventDefault();
-            
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                const headerHeight = header.offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+    // Initialize header state on page load
+    handleScroll();
     
-    // Form Validation
-    const contactForms = document.querySelectorAll('form.contact-form');
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+}
+
+// Animation on scroll
+function initScrollAnimations() {
+    const animateItems = document.querySelectorAll('.fade-in, .stagger-item');
     
-    contactForms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            const requiredFields = form.querySelectorAll('[required]');
-            let isValid = true;
+    function checkScroll() {
+        animateItems.forEach(item => {
+            const itemTop = item.getBoundingClientRect().top;
+            const itemBottom = item.getBoundingClientRect().bottom;
             
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    field.classList.add('error');
-                } else {
-                    field.classList.remove('error');
-                }
-            });
-            
-            // Email validation
-            const emailField = form.querySelector('input[type="email"]');
-            if (emailField && emailField.value.trim()) {
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailPattern.test(emailField.value)) {
-                    isValid = false;
-                    emailField.classList.add('error');
-                }
-            }
-            
-            if (!isValid) {
-                e.preventDefault();
-                
-                // Display error message
-                const errorMessage = form.querySelector('.error-message') || document.createElement('div');
-                errorMessage.className = 'error-message';
-                errorMessage.textContent = 'Please fill in all required fields correctly.';
-                
-                if (!form.querySelector('.error-message')) {
-                    form.prepend(errorMessage);
-                }
-            }
-        });
-    });
-    
-    // Animate elements when they enter the viewport
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    
-    function checkIfInView() {
-        animateElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementBottom = element.getBoundingClientRect().bottom;
-            
-            // Is element in viewport?
-            if (elementTop < window.innerHeight - 100 && elementBottom > 0) {
-                element.classList.add('animated');
+            // Only animate elements in viewport
+            if (itemTop < window.innerHeight * 0.85 && itemBottom > 0) {
+                item.classList.add('active');
             }
         });
     }
     
-    // Run on initial load
-    checkIfInView();
+    // Initial check for items in view
+    checkScroll();
     
-    // Run on scroll
-    window.addEventListener('scroll', checkIfInView);
-});
+    // Check for items on scroll
+    window.addEventListener('scroll', checkScroll);
+}
+
+// Window resize handler
+function initResizeHandler() {
+    window.addEventListener('resize', function() {
+        const navMenu = document.querySelector('.nav-menu');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        
+        // Reset mobile menu when resizing above breakpoint
+        if (window.innerWidth > 991) {
+            if (navMenu) navMenu.classList.remove('active');
+            if (menuOverlay) menuOverlay.classList.remove('active');
+            
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('show');
+            });
+        }
+    });
+}
 
 // Add class to handle RTL styles when in Arabic mode
 function applyRTLStyles() {
