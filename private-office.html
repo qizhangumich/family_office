@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Office - Office of His Highness Sheikh</title>
+    <title>Private Office</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -14,187 +17,180 @@
                 <img src="img/ab.png" alt="Private Office Logo" class="logo">
             </a>
         </div>
-        <nav class="main-nav">
+        <nav>
             <div class="nav-toggle">
                 <i class="fas fa-bars"></i>
             </div>
-            <ul>
+            <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about-uae.html">About the UAE</a></li>
-                <li class="dropdown">
-                    <a href="private-office.html" class="active">Private Office</a>
+                <li class="dropdown active">
+                    <a href="private-office.html">Private Office</a>
                     <ul class="dropdown-menu">
-                        <li><a href="office-activities.html">Office Activities</a></li>
-                        <li><a href="leadership-message.html">Leadership Message</a></li>
-                        <li><a href="ceo-message.html">CEO Message</a></li>
+                        <li><a href="#">Leadership Message</a></li>
+                        <li><a href="#">CEO Message</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="strategic-pillars.html">Strategic Pillars</a>
                     <ul class="dropdown-menu">
-                        <li><a href="people-centric.html">People-Centric Investment</a></li>
-                        <li><a href="next-generation.html">Next Generation Leadership</a></li>
-                        <li><a href="cultural-diplomacy.html">Cultural Diplomacy</a></li>
-                        <li><a href="environmental-sustainability.html">Environmental Sustainability</a></li>
+                        <li><a href="#">People-Centric Investment</a></li>
+                        <li><a href="#">Next Generation Leadership</a></li>
+                        <li><a href="#">Cultural Diplomacy</a></li>
+                        <li><a href="#">Environmental Sustainability</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="international-division.html">International Division</a>
                     <ul class="dropdown-menu">
-                        <li><a href="implementation.html">Implementation</a></li>
+                        <li><a href="implementation.html">Implementation Frameworks</a></li>
                     </ul>
                 </li>
                 <li><a href="contact.html">Contact Us</a></li>
-                <li class="language-selector"><a href="#" id="language-toggle">العربية</a></li>
+                <li class="language-toggle">
+                    <button class="language-btn">العربية</button>
+                </li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="page-header">
+            <img src="img/pexels-juansegmentado-31341730.jpg" alt="Private Office">
             <div class="container">
                 <h1>Private Office</h1>
             </div>
         </section>
 
-        <section class="private-office-intro">
+        <section class="private-office-intro section-padding">
             <div class="container">
-                <div class="section-content animate-on-scroll">
-                    <p>The strategic investment philosophy of our Office centres on sectors with enduring value and transformative potential for both the UAE and our international partners.</p>
-                    
-                    <p>Our Office maintains particular focus on projects that foster sustainable development while creating integrated ecosystems between complementary sectors. This strategic integration enhances both regional stability and global competitiveness, positioning our investments at the forefront of emerging market opportunities while maintaining prudent risk management.</p>
-                    
-                    <p>Each investment initiative undergoes rigorous evaluation against multiple criteria, including alignment with national development priorities, potential for sustainable returns, contribution to sectoral integration, and capacity for positive societal impact. This comprehensive approach ensures that our activities not only generate financial value but also strengthen economic resilience and enhance quality of life across communities.</p>
-                    
-                    <p>Through selective collaboration with premier international partners, we cultivate investment environments characterised by innovation, integrity, and long-term vision—reflecting our commitment to excellence in every endeavour.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="investment-approach">
-            <div class="container">
-                <div class="approach-content">
-                    <h2 class="section-title animate-on-scroll">Our Investment Approach</h2>
-                    
-                    <div class="approach-grid">
-                        <div class="approach-card animate-on-scroll">
-                            <div class="approach-icon">
-                                <i class="fas fa-balance-scale"></i>
-                            </div>
-                            <h3>Rigorous Evaluation</h3>
-                            <p>Each investment opportunity undergoes comprehensive assessment against strategic priorities, risk profiles, and impact potential.</p>
-                        </div>
-                        
-                        <div class="approach-card animate-on-scroll">
-                            <div class="approach-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3>Sustainable Returns</h3>
-                            <p>We prioritize opportunities that deliver long-term value creation over short-term gains, focusing on durable business models.</p>
-                        </div>
-                        
-                        <div class="approach-card animate-on-scroll">
-                            <div class="approach-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <h3>Strategic Partnerships</h3>
-                            <p>Collaboration with premier international partners that share our vision for innovation, integrity, and sustainable development.</p>
-                        </div>
-                        
-                        <div class="approach-card animate-on-scroll">
-                            <div class="approach-icon">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <h3>Global Perspective</h3>
-                            <p>Our international outlook enables identification of emerging trends and opportunities across diverse markets and sectors.</p>
-                        </div>
+                <div class="intro-content">
+                    <div class="intro-text fade-in">
+                        <h2>Strategic Investment Philosophy</h2>
+                        <p class="lead">The strategic investment philosophy of our Office centres on sectors with enduring value and transformative potential for both the UAE and our international partners.</p>
+                        <p>Our Office maintains particular focus on projects that foster sustainable development while creating integrated ecosystems between complementary sectors. This strategic integration enhances both regional stability and global competitiveness, positioning our investments at the forefront of emerging market opportunities while maintaining prudent risk management.</p>
+                        <p>Each investment initiative undergoes rigorous evaluation against multiple criteria, including alignment with national development priorities, potential for sustainable returns, contribution to sectoral integration, and capacity for positive societal impact. This comprehensive approach ensures that our activities not only generate financial value but also strengthen economic resilience and enhance quality of life across communities.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="private-office-links">
+        <section class="investment-approach section-padding bg-light">
             <div class="container">
-                <div class="links-grid">
-                    <div class="link-card animate-on-scroll">
-                        <div class="link-icon">
-                            <i class="fas fa-building"></i>
+                <h2 class="section-title text-center fade-in">Our Investment Approach</h2>
+                <div class="approach-grid stagger-container">
+                    <div class="highlight stagger-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-sync-alt"></i>
                         </div>
-                        <h3>Office Activities</h3>
-                        <p>Discover our current initiatives, recent achievements, and ongoing projects across diverse sectors.</p>
-                        <a href="office-activities.html" class="btn">Learn More</a>
+                        <h3>Sustainable Development</h3>
+                        <p>Projects that balance economic growth with social and environmental responsibility, creating long-term value and resilience.</p>
                     </div>
-                    
-                    <div class="link-card animate-on-scroll">
-                        <div class="link-icon">
-                            <i class="fas fa-comment-alt"></i>
+                    <div class="highlight stagger-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-project-diagram"></i>
                         </div>
-                        <h3>Leadership Message</h3>
-                        <p>A message from His Highness on our vision, values, and approach to global engagement.</p>
-                        <a href="leadership-message.html" class="btn">Read Message</a>
+                        <h3>Integrated Ecosystems</h3>
+                        <p>Strategic connections between complementary sectors that enhance efficiency, innovation, and overall economic vitality.</p>
                     </div>
-                    
-                    <div class="link-card animate-on-scroll">
-                        <div class="link-icon">
-                            <i class="fas fa-user-tie"></i>
+                    <div class="highlight stagger-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-chart-line"></i>
                         </div>
+                        <h3>Emerging Markets</h3>
+                        <p>Forward-looking investments in high-potential markets that offer strategic growth opportunities and diversification.</p>
+                    </div>
+                    <div class="highlight stagger-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Risk Management</h3>
+                        <p>Prudent evaluation and monitoring of investments to protect capital while pursuing meaningful returns.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="office-activities section-padding">
+            <div class="container">
+                <h2 class="section-title text-center fade-in">Office Activities</h2>
+                <div class="featured-content">
+                    <div class="featured-image fade-in">
+                        <img src="img/pexels-walidphotoz-31291361.jpg" alt="Office Activities">
+                    </div>
+                    <div class="featured-text fade-in">
+                        <h3>Collaborative Excellence</h3>
+                        <p>Through selective collaboration with premier international partners, we cultivate investment environments characterised by innovation, integrity, and long-term vision—reflecting our commitment to excellence in every endeavour.</p>
+                        <p>Our approach fosters partnerships that generate both financial returns and positive societal impact, creating sustainable value for all stakeholders.</p>
+                        <a href="#" class="cta-button">Explore Our Activities</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="leadership-message section-padding bg-light">
+            <div class="container">
+                <h2 class="section-title text-center fade-in">Leadership Insights</h2>
+                <div class="message-grid">
+                    <div class="message-card fade-in">
+                        <h3>Chairman's Message</h3>
+                        <p>"As custodians of a proud legacy extending across generations, we approach our responsibilities with profound respect for tradition and unwavering optimism for the future. Our Office stands firmly committed to fostering international partnerships built upon foundations of mutual respect, shared aspirations, and collaborative prosperity."</p>
+                        <a href="#" class="learn-more">Read Full Message <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="message-card fade-in">
                         <h3>CEO Message</h3>
-                        <p>Insights from our Chief Executive Officer on operational philosophy and strategic direction.</p>
-                        <a href="ceo-message.html" class="btn">Read Message</a>
+                        <p>"The strategic direction of our Office draws profound inspiration from exemplary leadership demonstrated at both national and global levels. Our operational philosophy emphasises governance excellence, sectoral diversification, and institutional adaptability—essential qualities for navigating an increasingly dynamic international environment."</p>
+                        <a href="#" class="learn-more">Read Full Message <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="call-to-action">
+        <section class="collaboration-opportunity section-padding">
             <div class="container">
-                <div class="cta-content animate-on-scroll">
-                    <h2>Explore Collaboration Opportunities</h2>
-                    <p>Connect with our team to discuss how we might create shared value through strategic partnership.</p>
-                    <a href="contact.html" class="btn">Contact Our Team</a>
+                <div class="intro-content">
+                    <div class="intro-text text-center fade-in">
+                        <h2>Collaboration Opportunities</h2>
+                        <p class="lead">We welcome discussions with potential partners whose vision aligns with our approach to strategic investment and long-term value creation.</p>
+                        <a href="contact.html" class="cta-button">Contact Our Team</a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h4>Office Address</h4>
-                    <p>P.O. Box: 111191 Abu Dhabi<br>
-                    P.O. Box: 122231 Dubai<br>
-                    United Arab Emirates</p>
-                </div>
-                <div class="footer-column">
-                    <h4>Contact Information</h4>
-                    <p>Phone: Abu Dhabi: (+971) 2 222 243 6<br>
-                    Dubai: (+971) 4 333 333 2<br>
-                    Email: info@privateoffice.ae</p>
-                </div>
-                <div class="footer-column">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about-uae.html">About the UAE</a></li>
-                        <li><a href="private-office.html">Private Office</a></li>
-                        <li><a href="strategic-pillars.html">Strategic Pillars</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Private Office</h3>
+                <p>Abu Dhabi, United Arab Emirates</p>
+                <p>P.O. Box 12345</p>
+                <p>Tel: +971 2 123 4567</p>
+                <p>Email: info@privateoffice.ae</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-uae.html">About the UAE</a></li>
+                    <li><a href="private-office.html">Private Office</a></li>
+                    <li><a href="strategic-pillars.html">Strategic Pillars</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <p>Follow us on social media for the latest updates and insights.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="copyright">
-                    <p>&copy; 2023 Office of His Highness Sheikh. All Rights Reserved.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="terms-of-use.html">Terms of Use</a>
-                </div>
-                <div class="language-selector-footer">
-                    <a href="#" id="footer-language-toggle">العربية</a>
-                </div>
-            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Private Office. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
         </div>
     </footer>
 
