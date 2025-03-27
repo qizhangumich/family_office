@@ -199,33 +199,34 @@ window.addEventListener('languagechange', applyRTLStyles);
 
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Navbar functionality
+    // Mobile Menu Toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
-    const header = document.querySelector('header');
-    const dropdowns = document.querySelectorAll('.dropdown');
     
-    // Toggle mobile menu
     if (navToggle) {
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
-            this.classList.toggle('active');
         });
     }
     
-    // Handle dropdowns on mobile
-    if (window.innerWidth < 992) {
+    // Dropdown Menu on Mobile
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    if (window.innerWidth <= 991) {
         dropdowns.forEach(dropdown => {
-            const link = dropdown.querySelector('a');
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const menu = this.nextElementSibling;
-                menu.classList.toggle('show');
+            dropdown.addEventListener('click', function(e) {
+                if (e.target.closest('a') && this.querySelector('.dropdown-menu')) {
+                    e.preventDefault();
+                    const dropdownMenu = this.querySelector('.dropdown-menu');
+                    dropdownMenu.classList.toggle('show');
+                }
             });
         });
     }
     
-    // Shrink header on scroll
+    // Header scroll effect
+    const header = document.querySelector('header');
+    
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -234,147 +235,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            if (this.getAttribute('href') !== '#') {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = targetPosition - headerHeight;
-                    
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
+    // Animation on scroll
+    const animateItems = document.querySelectorAll('.fade-in, .stagger-item');
     
-    // Language toggle functionality
-    const languageBtn = document.querySelector('.language-btn');
-    if (languageBtn) {
-        languageBtn.addEventListener('click', function() {
-            // Add language switching logic here
-            const isEnglish = this.textContent === 'العربية';
-            
-            if (isEnglish) {
-                // Switch to Arabic
-                this.textContent = 'English';
-                document.documentElement.classList.add('rtl-layout');
-            } else {
-                // Switch to English
-                this.textContent = 'العربية';
-                document.documentElement.classList.remove('rtl-layout');
+    function checkScroll() {
+        animateItems.forEach(item => {
+            const itemTop = item.getBoundingClientRect().top;
+            if (itemTop < window.innerHeight * 0.8) {
+                item.classList.add('active');
             }
         });
     }
     
-    // Scroll animations
-    const fadeElements = document.querySelectorAll('.fade-in');
-    const staggerItems = document.querySelectorAll('.stagger-item');
+    // Initial check for items in view
+    checkScroll();
     
-    // Initial check for elements in viewport on page load
-    checkElements(fadeElements);
-    checkElements(staggerItems);
-    
-    // Check elements on scroll
-    window.addEventListener('scroll', function() {
-        checkElements(fadeElements);
-        checkElements(staggerItems);
-    });
-    
-    function checkElements(elements) {
-        elements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementBottom = element.getBoundingClientRect().bottom;
-            const windowHeight = window.innerHeight;
-            
-            // Element is in viewport
-            if (elementTop < windowHeight * 0.85 && elementBottom > 0) {
-                element.classList.add('active');
-            }
-        });
-    }
-    
-    // Add scroll down arrow functionality
-    const scrollDown = document.querySelector('.scroll-down');
-    if (scrollDown) {
-        scrollDown.addEventListener('click', function() {
-            const targetSection = document.querySelector('.intro');
-            if (targetSection) {
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = targetPosition - headerHeight;
-                
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
-    
-    // Form validation
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            let isValid = true;
-            const formGroups = this.querySelectorAll('.form-group');
-            
-            formGroups.forEach(group => {
-                const input = group.querySelector('input, textarea');
-                const required = input.hasAttribute('required');
-                
-                if (required && !input.value.trim()) {
-                    isValid = false;
-                    input.classList.add('error');
-                } else if (input.type === 'email' && input.value.trim()) {
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailRegex.test(input.value.trim())) {
-                        isValid = false;
-                        input.classList.add('error');
-                    } else {
-                        input.classList.remove('error');
-                    }
-                } else {
-                    input.classList.remove('error');
-                }
-            });
-            
-            if (isValid) {
-                // Form is valid, you can submit it or show success message
-                alert('Form submitted successfully!');
-                contactForm.reset();
-            } else {
-                // Show error message
-                const errorMessage = document.querySelector('.error-message');
-                if (errorMessage) {
-                    errorMessage.style.display = 'block';
-                } else {
-                    const message = document.createElement('div');
-                    message.className = 'error-message';
-                    message.textContent = 'Please fill all required fields correctly.';
-                    contactForm.prepend(message);
-                }
-            }
-        });
-        
-        // Remove error class on input
-        const inputs = contactForm.querySelectorAll('input, textarea');
-        inputs.forEach(input => {
-            input.addEventListener('input', function() {
-                this.classList.remove('error');
-                const errorMessage = document.querySelector('.error-message');
-                if (errorMessage) {
-                    errorMessage.style.display = 'none';
-                }
-            });
-        });
-    }
+    // Check for items on scroll
+    window.addEventListener('scroll', checkScroll);
 }); 
