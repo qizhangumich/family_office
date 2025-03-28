@@ -2191,7 +2191,7 @@ p {
 }
 
 /* Contact Page Styles */
-.contact-grid {
+.contact-content .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
@@ -2330,7 +2330,7 @@ p {
 }
 
 @media (max-width: 768px) {
-    .contact-grid {
+    .contact-content .container {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
