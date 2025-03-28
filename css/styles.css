@@ -2260,7 +2260,7 @@ p {
 .contact-form-container {
     background-color: var(--light-bg);
     border-radius: var(--border-radius);
-    padding: 2rem;
+    padding: 2.5rem;
     box-shadow: var(--box-shadow);
 }
 
@@ -2268,16 +2268,30 @@ p {
     margin-bottom: 1.5rem;
     color: var(--primary-color);
     text-align: center;
+    position: relative;
+}
+
+.contact-form-container h2:after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .contact-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
+    margin-top: 1rem;
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    position: relative;
 }
 
 .form-group.full-width {
@@ -2289,15 +2303,33 @@ p {
     margin-bottom: 0.5rem;
     color: var(--dark-text);
     font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: var(--border-radius-sm);
+    padding: 0.9rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
     font-family: 'Inter', sans-serif;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #aaa;
+    opacity: 0.7;
 }
 
 .form-group textarea {
@@ -2309,6 +2341,7 @@ p {
     display: flex;
     align-items: flex-start;
     cursor: pointer;
+    font-size: 0.9rem;
 }
 
 .checkbox-label input {
@@ -2319,6 +2352,21 @@ p {
 
 .required {
     color: #e74c3c;
+}
+
+.contact-form .cta-button {
+    padding: 0.9rem 2.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    width: auto;
+    min-width: 200px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.contact-form .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 /* Responsive Adjustments for Contact Page */
