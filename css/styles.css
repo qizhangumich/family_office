@@ -514,7 +514,7 @@ nav {
     
     .language-btn {
         width: 100%;
-        text-align: center;
+    text-align: center;
         padding: 10px;
     }
     
@@ -985,28 +985,18 @@ main {
 /* Page Header Styles */
 .page-header {
     position: relative;
-    height: 400px;
+    height: 40vh;
+    min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--light-text);
-    background-color: var(--primary-color);
     text-align: center;
+    padding: 0;
+    color: var(--light-text);
     overflow: hidden;
+    background-color: var(--primary-color);
 }
 
-.page-header:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(15, 58, 93, 0.7);
-    z-index: 1;
-}
-
-.page-header img,
 .page-header-bg {
     position: absolute;
     top: 0;
@@ -1015,37 +1005,37 @@ main {
     height: 100%;
     object-fit: cover;
     z-index: 0;
+    opacity: 0.7;
+}
+
+.page-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(15, 58, 93, 0.7), rgba(15, 58, 93, 0.8));
+    z-index: 1;
 }
 
 .page-header .container {
     position: relative;
     z-index: 2;
+    max-width: 900px;
 }
 
 .page-header h1 {
     color: var(--light-text);
     margin-bottom: 1rem;
-    font-size: 3rem;
-    position: relative;
-    padding-bottom: 1.2rem;
-}
-
-.page-header h1:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: var(--secondary-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .page-header p {
+    font-size: 1.2rem;
     max-width: 700px;
     margin: 0 auto;
-    font-size: 1.2rem;
-    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .about-intro {
@@ -1540,19 +1530,19 @@ footer:before {
         max-width: 600px;
         margin: 0 auto;
     }
-    
+
     .hero {
         height: 80vh;
     }
-    
+
     .hero h1 {
         font-size: 2.5rem;
     }
-    
+
     .tagline {
         font-size: 1.2rem;
     }
-    
+
     .page-header {
         height: 300px;
     }
@@ -1587,7 +1577,7 @@ footer:before {
     .pillars-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .economic-highlights {
         grid-template-columns: 1fr;
     }

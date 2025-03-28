@@ -43,7 +43,7 @@ function initMobileMenu() {
     
     // Handle dropdown menus on mobile
     if (window.innerWidth <= 991) {
-        dropdowns.forEach(dropdown => {
+    dropdowns.forEach(dropdown => {
             dropdown.addEventListener('click', function(e) {
                 if (e.target.closest('a') && this.querySelector('.dropdown-menu')) {
                     e.preventDefault();
@@ -123,9 +123,9 @@ function initResizeHandler() {
             document.querySelectorAll('.dropdown-menu').forEach(menu => {
                 menu.classList.remove('show');
             });
-        }
-    });
-}
+            }
+        });
+    }
 
 // Add class to handle RTL styles when in Arabic mode
 function toggleLanguage() {
